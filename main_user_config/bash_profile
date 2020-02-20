@@ -1,0 +1,15 @@
+#
+# ~/.bash_profile
+#
+
+# Add a couple of paths that should be turned on earlier!
+# Should probably do that someday...
+PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH
+MANPATH=/usr/local/share/man:$MANPATH
+
+# Export everything!
+export PATH
+export MANPATH
+#export WALLPAPER
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc

@@ -1,0 +1,2 @@
+virtualbox-guest-utils 6.1.2-1
+virtualbox-guest-modules-arch 6.1.2-13

@@ -1,0 +1,61 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+set -o vi
+
+# Some Enviromnent Variables
+#export PS1='[\u@\h:\W]\$ '
+export EDITOR="/usr/bin/vim"
+export PATH=/usr/local/texlive/2014/bin/i386-linux:$PATH
+#export TERM=rxvt
+
+# Aliases
+alias ls="ls -Nh --color=auto"
+alias pdfmerge="gs -dBATCH -sNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=merged_pdf_file.pdf"
+alias remake="make clean; make"
+alias v="vim"
+alias ll="ls -l"
+alias lt="ls -lrt"
+alias steam-wine='WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe >/dev/null 2>&1 &'
+
+# Useful Functions
+function shush()
+{
+  eval "$@ &> /dev/null" &
+}
+
+# Other Scripts to source
+
+
+# Set up the pretty prompt!
+set_prompt () 
+{
+  Last_Command=$? # Must come first!
+
+  Blue='\[\033[0;36m\]'
+  Grey='\[\033[0;37m\]'
+  Green='\[\033[0;32m\]'
+  Red='\[\033[0;31m\]'
+  Reset='\[\033[00m\]'
+  PS1=""
+#  if [[ $Last_Command == 0 ]]
+#  then 
+#    PS1+="$Green* "
+#  else
+#    PS1+="$Red* "
+#  fi
+
+  if [[ $EUID == 0 ]]; then
+    PS1+="$Red\\u@$Grey\\h:"
+  else
+    PS1+="$Grey\\u@\\h:"
+  fi
+
+  PS1+="$Blue\\W$Reset\\\$ "
+}
+PROMPT_COMMAND='set_prompt'
+
