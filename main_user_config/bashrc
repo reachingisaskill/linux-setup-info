@@ -13,20 +13,24 @@ export EDITOR="/usr/bin/vim"
 export PATH=/usr/local/texlive/2014/bin/i386-linux:$PATH
 #export TERM=rxvt
 
+
 # Aliases
 alias ls="ls -Nh --color=auto"
-alias pdfmerge="gs -dBATCH -sNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=merged_pdf_file.pdf"
 alias remake="make clean; make"
 alias v="vim"
 alias ll="ls -l"
 alias lt="ls -lrt"
-alias steam-wine='WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe >/dev/null 2>&1 &'
+
+#alias pdfmerge="gs -dBATCH -sNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=merged_pdf_file.pdf"
+#alias steam-wine='WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe >/dev/null 2>&1 &'
+
 
 # Useful Functions
 function shush()
 {
   eval "$@ &> /dev/null" &
 }
+
 
 # Other Scripts to source
 
